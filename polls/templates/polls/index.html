@@ -1,0 +1,11 @@
+{% if latest_question_list %}
+    <ul>
+        {% for question in latest_question_list %}
+        <!-- html에 하드코딩된 url   <li><a href="/polls/{{ question.id }}">{{ question.question_text}}</a></li>    -->
+        <!-- name으로 url 불러오기 -->
+        <li><a href={% url 'polls:detail' question.id %}>{{ question.question_text}}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
